@@ -1,1 +1,1 @@
-# platzi-tdd
+# Best Practice Course Platzi
