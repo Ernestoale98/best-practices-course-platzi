@@ -1,1 +1,1 @@
-# Best Practice Course Platzi
+# Best Practices Course Platzi
