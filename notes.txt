@@ -1,0 +1,150 @@
+Caracteristicas internas de un buen codigo:
+-Legibilidad
+    Que tan facil es leer lo que el codigo dice
+-Mantenibilidad
+    Cuanto esfuerzo supondra adaptar el codigo a 
+    nuevos requerimientos ,funcionara en el futuro?
+--Testeabilidad
+    Cuanto esfuerzo supondria realizar pruebas sobre este codigo
+
+Que es un codigo prolijo?
+Un codigo prolijo es aquel que se basa en un estandar de codificacion
+
+Beneficios de un estandar de codificacion
+-Generar codigo claro y consistente para todos
+-Evita que pierdas tiempo en decisiones triviales 
+e.g "If de una linea lleva llaves o no"
+e.g "Declaro mis variables como $user_data o $userData
+
+Tips para mejorar el codigo
+-Define un estandar
+    Piensalo una vez y dejalo por escrito
+-Respetalo
+    Haz un esfuerzo por adherirte al estandar
+-Apoyate en algun linter
+    Herramienta que ayuda a mejorar buenas practicas        
+
+Codigo modular
+
+Restructurar tu codigo en diferentes funciones
+
+Tips para modular codigo
+-Si tu codigo tiene mas de 30 lineas es posible que nececites modularlo
+-Bloques que estan dentro de un ciclo
+-Validaciones largas
+
+Codigo reutilizable no copiable
+Tips para codigo reutilizable
+-Funciones que hagan una sola cosa
+-Reduce el acomplamiento lo mas posible (funciones dentro de funciones)
+
+Codigo organizado (sistema de archivos)
+-Aunque no lo parezca entre mas dividio sean las carpetas es mejor
+ para el proyecto
+
+
+ Evitar el hardcoding
+ Es escribir valores literales en lugar de identificadores
+ e.g
+ $precioConIva = $precioInicial * 1.17;
+ echo "El iva es de 17%"
+ En lugar de esto el iva deberia ser una variable aparte ya que cuando cambie su valor
+ se debera de cambiar en varios lugares en lugar de solo cambiar el valor de la variable
+
+
+Principios SOLID
+S: Single Reponsibility Principle -----------  Principio de Responsabilidad Unica
+
+Una clase solo debe de hacer un solo trabajo 
+
+O: Open/Closed Principle ---------- Principio de Abierto/Cerrado
+
+Separar la funcionalidad de una clase invocadora de una invocada 
+
+    foreach($documents as $docuemnt){
+        $this->verifyDocument($document)
+
+        //lo correcto seria
+        $document->verify()   
+    }
+Ya que dentro de la clase Docuemnt tenriamos una funcion que valide que tipo de documento es 
+validando sus dependencias;    
+
+
+L: Liskov Substitution Principle ---- Principio de Susbstitucion de Liskov
+
+Establece que cada clase que hereda de otra puede usarse como su padre sin necesidad de conocer las diferencias entre ellas. 
+Para que pueda darse este principio debe cumplir con dos puntos:
+
+El cliente debe usar métodos de la clase padre únicamente.
+La clase hija no debe alterar el comportamiento de los métodos de la clase padre.
+
+I: Interface Segregation Principle ---- Principio de Segregacion de Interface
+ 
+Establece que los clientes de un programa sólo deberían conocer de éste los métodos que realmente usan
+
+Dividir las interfaces a lo que sea necesario,mantener las interfaces finas, 
+para que las clases que lo comparten solo conozcan los metodos que si van a usar
+
+D: Dependency Inversion Principle ---- Principio de inversion de dependencias
+
+Clases de alto nivel son aquellas que influyen en el proceso de negocio de la aplicacion
+Clases de bajo nivel son aquellas que nos ayudan a modular los proceso llamandolas dentro de las clases de alto nivel
+
+Usar inyeccion de dependencias con interfaces de este modo cualquier clase con esa interface puede ser inyectada
+
+__construct(){
+    $this->emailSender = new EmailSender();
+}
+
+__construct(EmailSender $emailSender){
+    $this->emailSender = new EmailSender();
+}
+
+
+El patrón Singleton permite restringir la creación de objetos pertenecientes a una clase o al valor de un tipo a un único objeto.
+
+El patron Factory es creacional, se utiliza para ayudar a la creación de nuevas instancias de objetos.
+
+El patrón Command permite solicitar una operación a un objeto sin conocer realmente el contenido de esta operación, 
+ni el receptor real de la misma. Para ello se encapsula la petición como un objeto, con lo que además facilita la parametrización de los métodos.
+
+
+Testing
+
+Unit Testing: Evaluamos el funcionamiento de los componentes individualmente.
+Integration Testing: Validar la interacción entre los componentes y el sistema completo.
+
+Test Driven Development 
+
+Crear codigo apartir de pruebas
+
+1.- Tomar una nueva funcionalidad a desarrollar
+2.- Escribir una prueba para esta caracteristica
+3.- Ver la prueba fallar
+4.- Escribir el minimo codigo para pasar la prueba
+5.- Examinar el codigo para mejorarlo eliminar redundancias 
+6.- Ejecutar de nuevo la prueba para verificar que el nuevo codigo sea efectivo
+7.- Pasar a la nueva funcionalidad
+
+
+El principal objetivo de TDD es hacer el minimo codigo para realizar los objetivos de modo que 
+nos hace mas eficientes
+
+Documentación
+
+¿Qué documentar?
+Como implementar nueva funcionalidad.
+Como se realizan las pruebas.
+Lo mínimo que necesita las personas que quieren colaborar o heredar tu proyecto.
+
+¿Dónde documentar?
+Propio código.
+Sistema de documentación.
+Wiki
+
+¿Cuándo documentar?
+Documentar inmediatamente después de codear.
+Cuando se resuelve un problema, documentar la solución.
+
+
